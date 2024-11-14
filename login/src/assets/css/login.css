@@ -1,0 +1,43 @@
+/* Estilo predeterminado */
+.text-decoration {
+    color: black; /* Color morado */
+    transition: color 0.3s ease; /* Transición suave */
+  }
+  
+  /* Cambio al pasar el ratón por encima */
+  .text-decoration:hover {
+    color: #8A2BF8; /* Cambia aquí al color que prefieras al pasar el ratón */
+  }
+
+
+  .underline-animation {
+    border: none;
+    border-bottom: 1px solid transparent; /* Línea de abajo inicial */
+    outline: none; /* Quita el contorno predeterminado al hacer foco */
+    transition: border-bottom 0.3s ease; /* Transición suave */
+  
+    /* Estilos adicionales, como el tamaño del texto, color, etc. */
+    font-size: 16px;
+    color: #333;
+    /* ...otros estilos */
+  }
+  
+  .underline-animation:hover,
+  .underline-animation:focus {
+    border-bottom: 1px solid #8A2BE2; /* Línea de abajo al pasar el ratón o hacer foco */
+  }
+
+  
+  .shadow-component {
+    border-radius: 8px; /* Bordes redondeados, opcional */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra alrededor del componente */
+  }
+  
+  .shadow-component:hover {
+    border-radius: 8px; /* Bordes redondeados, opcional */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra alrededor del componente */
+  }
+  
+  
+  
+  
