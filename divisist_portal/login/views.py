@@ -1,19 +1,22 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login
 from django.contrib import messages
 
 def login_view(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+    if request.method == "POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user_type = request.POST.get("user_type")  # Nuevo campo
         user = authenticate(request, username=username, password=password)
-        if user is not None:
+        if user:
             login(request, user)
-            return redirect('home')  # Puedes ajustar esta redirección
+            # Redirige según el tipo de usuario
+            if user_type == "profesor":
+                return redirect("profesor_dashboard")
+            elif user_type == "estudiante":
+                return redirect("estudiante_dashboard")
+            elif user_type == "administrativo":
+                return redirect("administrativo_dashboard")
         else:
-            messages.error(request, 'Usuario o contraseña incorrectos')
-    return render(request, 'login/login.html')
-
-def logout_view(request):
-    logout(request)
-    return redirect('login')
+            messages.error(request, "Credenciales inválidas")
+    return render(request, "login/login.html")
